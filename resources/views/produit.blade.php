@@ -19,7 +19,7 @@
                 <p>Nom : {{ $produit['nom'] }}</p>
                 <p>Prix : {{ $produit['prix'] }}</p>
 
-                @if ($produit['en_promo'] = true)
+                @if ($produit['en_promo'])
                     <p>🔥 Promo !</p>
                 @endif
                 <p>
@@ -33,7 +33,7 @@
     @foreach($produits as $produit)
         <div>
             <x-produitcomponent :nom="$produit['nom']" :prix="$produit['prix']"></x-produitcomponent>
-            @if ($produit['en_promo'] = true)
+            @if ($produit['en_promo'])
                 <p>🔥 Promo !</p>
             @endif
             <p>
