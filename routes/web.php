@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\CalculController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\MembreController;
+use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
@@ -13,7 +18,6 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return "Hello World! C'est ma première route Laravel.";
 })->name('hello');
-
 
 Route::get('/cars', [CarsController::class, 'index'])->name('cars.index');
 
@@ -32,5 +36,18 @@ Route::post('/formulaire', function () {
     EOT;
 })->name('formulaire');
 
-
 Route::redirect('/ici',"/hello");
+
+/***************************** EXERCICE : VIEWS ***************************/
+
+Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil.index');
+
+Route::get('/a-propo', [AboutController::class, 'index'])->name('about.index');
+
+Route::get('/membres', [MembreController::class, 'index'])->name('membre.index');
+
+Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
+
+Route::get('/produits', [ProduitController::class, 'index'])->name('produit.index');
+
+Route::get('/produits/{id}', [ProduitController::class, 'getById'])->name('produit.index');
