@@ -7,9 +7,12 @@ use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
+
+/***************************** EXERCICE : ROUTING ***************************/
 
 Route::get('/', function () {
     return view('welcome');
@@ -51,3 +54,10 @@ Route::get('/services', [ServiceController::class, 'index'])->name('service.inde
 Route::get('/produits', [ProduitController::class, 'index'])->name('produit.index');
 
 Route::get('/produits/{id}', [ProduitController::class, 'getById'])->name('produit.index');
+
+
+/***************************** EXERCICE : DB ***************************/
+
+Route::get('/tasks', [TaskController::class,'index'])->name('task.index');
+Route::get('/task/{id}', [TaskController::class,'getById'])->name('task.getById');
+
