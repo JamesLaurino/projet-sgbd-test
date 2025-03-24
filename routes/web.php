@@ -11,6 +11,7 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
+use \Illuminate\Http\Request;
 
 /***************************** EXERCICE : ROUTING ***************************/
 
@@ -59,5 +60,9 @@ Route::get('/produits/{id}', [ProduitController::class, 'getById'])->name('produ
 /***************************** EXERCICE : DB ***************************/
 
 Route::get('/tasks', [TaskController::class,'index'])->name('task.index');
+
 Route::get('/task/{id}', [TaskController::class,'getById'])->name('task.getById');
 
+Route::get('/task-add', [TaskController::class,'form'])->name('task.add');
+
+Route::post('/task', [TaskController::class,'add'])->name('task.store');
