@@ -13,27 +13,35 @@
     <h1 class="m-3 text-white">Task List</h1>
 </div>
 
+@if(session("success"))
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="alert alert-success" role="alert">
+            {{ session("success") }}
+        </div>
+    </div>
+@endif
+
 <div class="container mt-5">
     <table class="table mt-3">
         <thead>
         <tr>
-            <th scope="col">#</th>
+{{--            <th scope="col">#</th>--}}
             <th scope="col">Id</th>
             <th scope="col">Name</th>
-            <th scope="col">Description</th>
             <th scope="col">CreationDate</th>
             <th scope="col">Detail</th>
+            <th scope="col">Delete</th>
         </tr>
         </thead>
         <tbody>
         @foreach($tasks as $task)
             <tr>
-                <th scope="row">{{ $loop->index }}</th>
+{{--                <th scope="row">{{ $loop->index }}</th>--}}
                 <td>{{ $task['id'] }}</td>
                 <td>{{ $task['name']  }}</td>
-                <td>{{ $task['description']  }}</td>
                 <td>{{ $task['created_at']  }}</td>
-                <td><a href="/task/{{$task['id']}}" class="btn btn-warning">Detail</a></td>
+                <td><a href="{{ route('task.show', ['id' => $task['id']]) }}" class="btn btn-warning">Detail</a></td>
+                <td><a href="{{ route('task.delete', ['id' => $task['id']]) }}" class="btn btn-danger">Delete</a></td>
             </tr>
         @endforeach
         </tbody>

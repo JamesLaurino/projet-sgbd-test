@@ -18,11 +18,23 @@
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" id="name" placeholder="task name">
+            <input type="text" name="name" class="form-control" id="name"
+                   value="{{old('name', 'titre par défault')}}">
+            <div class="text-danger">
+                @error("name")
+                    {{ $message }}
+                @enderror
+            </div>
         </div>
         <div class="form-group">
             <label for="description">Example textarea</label>
-            <textarea name="description" class="form-control" id="description" rows="5" cols="10"></textarea>
+            <textarea name="description" class="form-control" id="description" rows="5" cols="5">
+            </textarea>
+            <div class="text-danger">
+                @error('description')
+                    {{$message}}
+                @enderror
+            </div>
         </div>
         <button type="submit" class="btn btn-primary">Add tast</button>
     </form>

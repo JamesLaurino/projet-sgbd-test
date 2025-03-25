@@ -18,7 +18,7 @@
     <div class="mt-3">Task name ==> {{ $task['name']  }}</div>
     <div class="mt-3">task desc ==> {{ $task['description']  }}</div>
     <div class="mt-3">task creation ==> {{ $task['created_at']  }}</div>
-    <div class="mt-3"><a href="/tasks" class="btn btn-primary" >Back</a></div>
+    <div class="mt-3"><a href="{{route("task.index")}}" class="btn btn-primary" >Back</a></div>
 </div>
 
 

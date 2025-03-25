@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TaskRequest;
 use App\Models\Task;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -21,14 +21,14 @@ class TaskController extends Controller
         return view('task-form');
     }
 
-    public function add(Request $request) {
+    public function delete($id) {
+        $task = Task::find($id);
+        $task->delete();
+        return redirect()->route("task.index");
+    }
 
-        $taskInput = new Task();
-        $taskInput->name = $request->all()['name'];
-        $taskInput->description = $request->all()['description'];
-        $taskInput->save();
-
-        $tasks = Task::all();
-        return view('task', ['tasks' => $tasks]);
+    public function add(TaskRequest $request) {
+        Task::create($request->validated());
+        return redirect()->route("task.index")->with("success", "La taskée a été sauvegardée");
     }
 }

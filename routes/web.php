@@ -59,10 +59,15 @@ Route::get('/produits/{id}', [ProduitController::class, 'getById'])->name('produ
 
 /***************************** EXERCICE : DB ***************************/
 
-Route::get('/tasks', [TaskController::class,'index'])->name('task.index');
+Route::prefix("/task")->name("task.")->controller(TaskController::class)->group(function(){
 
-Route::get('/task/{id}', [TaskController::class,'getById'])->name('task.getById');
+    Route::get('/', 'index')->name('index');
 
-Route::get('/task-add', [TaskController::class,'form'])->name('task.add');
+    Route::get('/add','form')->name('add');
 
-Route::post('/task', [TaskController::class,'add'])->name('task.store');
+    Route::get('/delete/{id}', 'delete')->name('delete');
+
+    Route::get('/{id}', 'getById')->name('show');
+
+    Route::post('/', 'add')->name('store');
+});
