@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Cars</title>
+</head>
+<body>
+
+<div class="container-fluid d-flex justify-content-center bg-dark">
+    <h1 class="m-3 text-white">Task List</h1>
+</div>
+
+<div class="container d-flex flex-column justify-content-center mt-5">
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">catégorie id : {{ $category['id'] }}</li>
+        <li class="list-group-item">catégorie name : {{ $category['name']  }}</li>
+        <li class="list-group-item">catégorie creation : {{ $category['created_at'] }}</li>
+    </ul>
+    <br>
+    @if($category->tasks)
+        <div class="h4 m-2">Task list</div>
+        <ul class="list-group list-group-flush">
+            @foreach($category->tasks as $task)
+                <li class="list-group-item">{{$task['name']}}</li>
+            @endforeach
+        </ul>
+    @endif
+    <div class="mt-3"><a href="{{route("category.index")}}" class="btn btn-primary" >Back</a></div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+</body>
+</html>

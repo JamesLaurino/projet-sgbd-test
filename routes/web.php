@@ -11,6 +11,7 @@ use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
+use \App\Http\Controllers\CategoryController;
 use \Illuminate\Http\Request;
 
 /***************************** EXERCICE : ROUTING ***************************/
@@ -70,4 +71,10 @@ Route::prefix("/task")->name("task.")->controller(TaskController::class)->group(
     Route::get('/{id}', 'getById')->name('show');
 
     Route::post('/', 'add')->name('store');
+});
+
+
+Route::prefix("/category")->name("category.")->controller(CategoryController::class)->group(function(){
+    Route::get('/', 'index')->name('index');
+    Route::get('/{id}', 'getById')->name('show');
 });
