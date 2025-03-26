@@ -29,6 +29,7 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">CreationDate</th>
+            <th scope="col">Category</th>
             <th scope="col">Detail</th>
             <th scope="col">Delete</th>
         </tr>
@@ -40,6 +41,13 @@
                 <td>{{ $task['id'] }}</td>
                 <td>{{ $task['name']  }}</td>
                 <td>{{ $task['created_at']  }}</td>
+                <td>
+                    @if($task->category)
+                        {{ $task->category->name }}
+                    @else
+                        No category
+                    @endif
+                </td>
                 <td><a href="{{ route('task.show', ['id' => $task['id']]) }}" class="btn btn-warning">Detail</a></td>
                 <td><a href="{{ route('task.delete', ['id' => $task['id']]) }}" class="btn btn-danger">Delete</a></td>
             </tr>
