@@ -46,6 +46,9 @@
         @endforeach
         </tbody>
     </table>
+    <div class="mt-5 d-flex justify-content-center">
+        {{$tasks->links()}}
+    </div>
 </div>
 
 

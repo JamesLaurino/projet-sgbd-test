@@ -8,7 +8,8 @@ use App\Models\Task;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::all();
+        //$tasks = Task::all();
+        $tasks = Task::orderBy("created_at", "DESC")->paginate(3);
         return view('task', ['tasks' => $tasks]);
     }
 
