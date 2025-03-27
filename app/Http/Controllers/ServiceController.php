@@ -11,6 +11,6 @@ class ServiceController extends Controller
             ['titre' => 'Info', 'message' => 29],
             ['titre' => 'Web', 'message' => 29]
         ];
-        return view('service', ['data' => $data]);
+        return view('exercice-view.service', ['data' => $data]);
     }
 }

@@ -12,6 +12,6 @@ class MembreController extends Controller
             ['prenom' => 'Chloé', 'age' => 17],
             ['prenom' => 'Damien', 'age' => 42],
         ];
-        return view('membre',['membres' => $membres]);
+        return view('exercice-view.membre',['membres' => $membres]);
     }
 }
