@@ -20,6 +20,18 @@
             <a class="nav-link text-white" href="#">Pricing</a>
         </div>
     </div>
+    <div class="text-white">
+        @auth
+            {{ \Illuminate\Support\Facades\Auth::user()->name  }}
+            <form action="{{route("auth.logout")}}" method="POST" >
+                @csrf
+                <button class="nav-link" >se déconnecter</button>
+            </form>
+        @endauth
+        @guest
+            <a href="{{route("auth.login")}}" >Seconnecter</a>
+        @endguest
+    </div>
 </nav>
 
     @yield("body")

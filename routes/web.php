@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AccueilController;
 use App\Http\Controllers\CalculController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ServiceController;
@@ -78,3 +79,12 @@ Route::prefix("/category")->name("category.")->controller(CategoryController::cl
     Route::get('/', 'index')->name('index');
     Route::get('/{id}', 'getById')->name('show');
 });
+
+/***************************** EXERCICE : AUTHENTICATION ***************************/
+
+Route::get("/users", [UserController::class, 'show'])->name("user.show");
+Route::get("/users/create", [UserController::class, 'create'])->name("user.create");
+
+Route::get("/login", [LoginController::class, "index"])->name("auth.login");
+Route::post("/login", [LoginController::class, "connect"])->name("auth.login");
+Route::post("/logout", [LoginController::class, "logout"])->name("auth.logout");
