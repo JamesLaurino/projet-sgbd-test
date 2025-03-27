@@ -12,6 +12,6 @@ class LanguageController extends Controller
             null => 'Bienvenue',
             default => 'Langue non disponible'
         };
-        return view('langue', ['langueRes' => $langueRes]);
+        return view('exercice-routing.langue', ['langueRes' => $langueRes]);
     }
 }

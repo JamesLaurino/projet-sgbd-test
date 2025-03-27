@@ -6,6 +6,6 @@ class UserController extends Controller
 {
     public function index($name)
     {
-        return view('user', ['name' => $name]);
+        return view('exercice-routing.user', ['name' => $name]);
     }
 }
