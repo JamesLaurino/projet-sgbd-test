@@ -14,7 +14,7 @@ class ProduitController extends Controller
 
     public function index()
     {
-        return view('produit',['produits' => $this->produits]);
+        return view('product.produit',['produits' => $this->produits]);
     }
 
     public function getById($id)
@@ -25,6 +25,6 @@ class ProduitController extends Controller
                 $res = $produit;
             }
         }
-        return view('product-detail',['res' => $res]);
+        return view('product.product-detail',['res' => $res]);
     }
 }
