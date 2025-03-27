@@ -32,7 +32,9 @@
 <div class="container-fluid d-flex justify-content-center mt-5">
     @foreach($produits as $produit)
         <div>
-            <x-produitcomponent :nom="$produit['nom']" :prix="$produit['prix']"></x-produitcomponent>
+            <x-produit-component :nom="$produit['nom']" :prix="$produit['prix']">
+                Afficher dans le slot
+            </x-produit-component>
             @if ($produit['en_promo'])
                 <p>🔥 Promo !</p>
             @endif
