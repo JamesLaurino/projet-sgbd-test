@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="text" name="email" class="form-control" id="email"
-                       value="{{old('email', 'votre email')}}">
+                       value="{{old('email', 'user@email.com')}}">
                 <div class="text-danger">
                     @error("email")
                     {{ $message }}
@@ -21,6 +21,11 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" id="password"/>
+                <div class="text-danger">
+                    @error("password")
+                    {{ $message }}
+                    @enderror
+                </div>
             </div>
             <button type="submit" class="btn btn-primary">submit</button>
         </form>

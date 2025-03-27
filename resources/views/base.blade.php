@@ -25,11 +25,11 @@
             {{ \Illuminate\Support\Facades\Auth::user()->name  }}
             <form action="{{route("auth.logout")}}" method="POST" >
                 @csrf
-                <button class="nav-link" >se déconnecter</button>
+                <button type="submit" class="nav-link" >se déconnecter</button>
             </form>
         @endauth
         @guest
-            <a href="{{route("auth.login")}}" >Seconnecter</a>
+            <a href="{{route("auth.login")}}" >Se connecter</a>
         @endguest
     </div>
 </nav>

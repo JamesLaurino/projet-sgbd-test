@@ -14,22 +14,26 @@ class LoginController extends Controller
 
     public function connect(LoginRequest $loginRequest)
     {
+        echo 'ok 1';
         $credential = $loginRequest->validated();
 
         if(Auth::attempt($credential)) {
+            echo 'ok 2';
             $loginRequest->session()->regenerate();
             return redirect()->route("accueil.index");
         }
 
-        return to_route('client.login')->withErrors([
+        echo 'ok 3';
+        return to_route('auth.login')->withErrors([
             "email" => "connexion invalide"
         ])->onlyInput("email");
     }
 
     public function logout()
     {
+        echo "logout";
         Auth::logout();
-        return view('client.login');
+        return redirect()->route("accueil.index");
     }
 
 }
