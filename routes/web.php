@@ -82,9 +82,11 @@ Route::prefix("/category")->name("category.")->controller(CategoryController::cl
 
 /***************************** EXERCICE : AUTHENTICATION ***************************/
 
-Route::get("/users", [UserController::class, 'show'])->name("user.show");
+
 Route::get("/users/create", [UserController::class, 'create'])->name("user.create");
 
+Route::get("/users", [UserController::class, 'show'])->name("user.show")
+    ->middleware("auth");
 Route::get("/login", [LoginController::class, "index"])->name("auth.login");
 Route::post("/login", [LoginController::class, "connect"])->name("auth.login");
 Route::post("/logout", [LoginController::class, "logout"])->name("auth.logout");
