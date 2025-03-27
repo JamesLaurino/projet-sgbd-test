@@ -11,16 +11,16 @@ class TaskController extends Controller
         //$tasks = Task::all();
         //$tasks = Task::orderBy("created_at", "ASC")->paginate(3);
         $tasks = Task::with("category")->paginate(3);
-        return view('task', ['tasks' => $tasks]);
+        return view('task.task', ['tasks' => $tasks]);
     }
 
     public function getById($id) {
         $task = Task::findOrFail($id);
-        return view('task-detail', ['task' => $task]);
+        return view('task.task-detail', ['task' => $task]);
     }
 
     public function form() {
-        return view('task-form');
+        return view('task.task-form');
     }
 
     public function delete($id) {
