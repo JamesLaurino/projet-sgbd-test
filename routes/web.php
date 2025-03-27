@@ -47,7 +47,7 @@ Route::redirect('/ici',"/hello");
 
 Route::get('/accueil', [AccueilController::class, 'index'])->name('accueil.index');
 
-Route::get('/a-propo', [AboutController::class, 'index'])->name('about.index');
+Route::get('/about', [AboutController::class, 'index'])->name('about.index');
 
 Route::get('/membres', [MembreController::class, 'index'])->name('membre.index');
 
