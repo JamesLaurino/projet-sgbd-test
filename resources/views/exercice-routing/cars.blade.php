@@ -9,6 +9,8 @@
 </head>
 <body>
 
+<x-weather></x-weather>
+
 <div class="container-fluid d-flex justify-content-center bg-dark">
     <h1 class="m-3 text-white">Cars List</h1>
 </div>
