@@ -9,11 +9,11 @@ use App\Http\Controllers\MembreController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UploadController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\UserController;
 use \App\Http\Controllers\CategoryController;
-use \Illuminate\Http\Request;
 
 /***************************** EXERCICE : ROUTING ***************************/
 
@@ -80,7 +80,17 @@ Route::prefix("/category")->name("category.")->controller(CategoryController::cl
     Route::get('/{id}', 'getById')->name('show');
 });
 
-/***************************** EXERCICE : AUTHENTICATION ***************************/
+/******************************* EXERCICE : STORAGE *****************************/
+
+
+Route::get("/upload", [UploadController::class,"index"])
+    ->name("upload.index");
+
+Route::post("/upload", [UploadController::class,"create"])
+    ->name("upload.create");
+
+
+/****************************** EXERCICE : AUTHENTICATION **********************/
 
 
 Route::get("/users/create", [UserController::class, 'create'])->name("user.create");
